@@ -1,0 +1,55 @@
+---
+title: "Gun Violence Report"
+author: "Snow Wu"
+date: "2020/5/16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library("knitr")
+source("analysis.R")
+```
+
+## Summary Information
+
+[Original Data Source](https://www.gunviolencearchive.org/reports/mass-shooting?year=2018)
+
+In 2018, there were `r shooting_num` occurred in the US. Among those shooting events, there were `r total_lives_lost` lives lost and `r total_injured` injuries. Since there are more injuries and deaths than the total number of shootings, meaning for every shooting event, there could be at least one person get killed and four people get injuried. Among all the cities, `r most_impacted_city` was most impacted by shootings with having the highest number of deaths and injuries, and among all the states, `r most_impacted_state` was most suffered from shootings with having the highest number of deaths and injuries. 
+
+## Summary Table
+```{r kable_example, echo = FALSE, warning=FALSE, message=FALSE}
+colnames(summary_table) <- c("State", "Number of Death",
+                             "Percentage of the number of Total Death(%)")
+kable(summary_table)
+```
+
+### **Important Insights From the Table:**
+The top three states that have the highest number of deaths are *California, Florida, and Pennsylvania*, and in total they account for about ***35%*** of the total deaths. In general, a trend of higher deaths is associated with east-coast states in the US. The number of deaths is varied greatly for every state, and this could mean culture, gun law issues, criminal rates associated with the states cause of higher death proportions.
+
+## Description of a Particular Incident
+In 2018, `r most_impacted_state` was the most impacted state from mass shootings with `r ca_death_data` deaths and `r ca_injury_data` injuries. Noticeably, there was a tragic shooting event happened in CA in that year, and that brought a significant number of deaths to CA. The mass shooting took place on November 7, 2018, in Thousand Oaks, CA, USA, at the Borderline Bar and Grill. There were *12* people died from that shooting, and many people were injured.
+[News Report Referring to Specific Shooting Mentioned](https://www.cnn.com/2018/11/09/us/california-thousand-oaks-shooting-how-it-unfolded/index.html)
+
+## An Interactive Map
+
+The purpose of this map is to show some statistical information about the incident in every state in the US in 2018.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+interactive_map
+```
+
+### **Two Insights From the Map:**
+1. Florida seems to have the largest impact from mass shootings with the biggest size of marker among all states.
+2. East-coast states seemed to be more impacted by mass shootings compared to west-coast states.
+
+## Bar Chart
+
+***A Question I would like to answer about the data:***
+**What is the total number of injuries in every state?**
+The reason I chose bar chart because it provides a better visualization to display data for my question.
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+bar_graph
+```
+
+### **Two Insights From the Bar Chart:**
+1. Illinois has the highest number of injuries among all states.
+2. Delaware is the only state that has no injuries.
